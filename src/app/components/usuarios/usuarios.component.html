@@ -1,0 +1,43 @@
+<div class="container mt-4">
+    <span class="titulo">API de Usuários</span>
+    <hr class="mb-4">
+
+    <div class="row">
+        <div class="col-lg-8 col-md-6 col-sm-12">
+            <button class="btn btn-success ml-2" data-toggle="modal" data-target="#modal">Adicionar</button>
+            <br><br>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" (input)="carregar($any($event.target).value)"
+                    (change)="this.searchInput = $any($event.target).value" placeholder="Pesquisar" aria-label="Pesquisar">
+                <a (click)="carregar(this.searchInput)" class="btn btn-outline-info my-2 my-sm-0"><i
+                        class="fas fa-search"></i></a>
+            </form>
+        </div>
+
+    </div>
+
+    <table class="table table-striped ml-2">
+        <tr>
+            <td><b>Nome</b></td>
+            <td><b>Usuário</b></td>
+            <td><b>Senha</b></td>
+            <td><b>Ações</b></td>
+        </tr>
+        <tr *ngFor="let dado of list">
+
+            <td>{{dado.nome}}</td>
+            <td>{{dado.usuario}}</td>
+            <td>{{dado.senha}}</td>
+            <td>
+                <!--
+                <a (click)="dadosEditar(dado.nome, dado.usuario, dado.senha, dado.id)" data-toggle="modal"
+                    data-target="#modal" title="Editar Registro"><i class="far fa-edit text-info mr-2"></i></a>
+                <a (click)="excluir(dado.id)" title="Excluir Registro"><i class="far fa-trash-alt text-danger"></i></a>
+                -->
+            </td>
+        </tr>
+    </table>
+
+</div>
